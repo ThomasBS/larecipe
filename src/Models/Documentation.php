@@ -50,7 +50,7 @@ class Documentation
             $path = base_path(config('larecipe.docs.path').'/'.$version.'/index.md');
 
             if ($this->files->exists($path)) {
-                $parsedContent = $this->parse($this->files->get($path));
+                @$parsedContent = $this->parse($this->files->get($path));
 
                 return $this->replaceLinks($version, $parsedContent);
             }
@@ -73,7 +73,7 @@ class Documentation
             $path = base_path(config('larecipe.docs.path').'/'.$version.'/'.$page.'.md');
 
             if ($this->files->exists($path)) {
-                $parsedContent = $this->parse($this->files->get($path));
+                @$parsedContent = $this->parse($this->files->get($path));
 
                 $parsedContent = $this->replaceLinks($version, $parsedContent);
 
